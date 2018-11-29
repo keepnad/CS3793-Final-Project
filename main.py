@@ -1,4 +1,6 @@
 from PyDictionary import PyDictionary
+import random
+import neural_net as nn
 
 dictionary = PyDictionary();
 
