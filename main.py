@@ -11,10 +11,9 @@ print('Word2Vec model loaded.')
 eta = .01
 neural_nets = None
 
-
 if input('open existing neural network? (y/n) ').lower() == 'y':
-        with open('neural_networks.pkl', 'rb') as input_file:
-            neural_nets = pickle.load(input_file)
+    with open('neural_networks.pkl', 'rb') as input_file:
+        neural_nets = pickle.load(input_file)
 if neural_nets is None:
     neural_nets = [nn.NeuralNetwork(eta) for __ in range(10)]
 with open('sentences') as file:
