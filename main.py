@@ -1,9 +1,15 @@
+# Daniel Peek qer419
+# Michael Canas ohh135
+# CS 3793 Final Project
+# 12/4/18
+
 import nltk
 import gensim
 import neural_net as nn
 import random
 import pickle
 import argparse
+import sys
 
 total_guesses = 0
 correct_guesses = 0
@@ -11,13 +17,18 @@ correct_guesses = 0
 
 def main():
     parser = argparse.ArgumentParser(description='Train and test a neural network for part-of-speech tagging')
-    parser.add_argument('-t', '--test', help='Select to test the neural network, instead of training it',
+    parser.add_argument('-t', '--test', help='Select to test neural net, instead of training',
                         action='store_true', default=False)
     parser.add_argument('-i', '--input', help='File to read input from', default=None)
     parser.add_argument('-o', '--output', help='File to save output to', default=None)
+    parser.add_argument('-e', '--epochs', help='number of epochs to train for', type=int, default=None)
     args = parser.parse_args()
     if args.test and args.input is None:
         parser.error('Testing mode requires a trained neural network input file')
+    if args.test and args.output is not None:
+        print('Output option is not active in testing mode', file=sys.stderr)
+    if args.test and args.epochs is not None:
+        print('Epochs are not used in testing mode', file=sys.stderr)
 
     nltk.download('averaged_perceptron_tagger')
 
@@ -28,6 +39,11 @@ def main():
     eta = .01
     neural_nets = None
     testing = args.test
+
+    if args.epochs is not None:
+        epochs = args.epochs
+    else:
+        epochs = 1000
 
     if args.input is not None:
         with open(args.input, 'rb') as input_file:
@@ -50,11 +66,15 @@ def main():
         exit(0)
 
     else:
-        for epoch in range(1000):
+        for epoch in range(epochs):
             line = random.choice(training_data)
             run(line, model, neural_nets, epoch, testing)
+            if epoch % 10000 == 0:
+                if args.output is not None:
+                    with open(args.output, 'wb') as output_file:
+                        pickle.dump(neural_nets, output_file, -1)
 
-    if args.output is not None:
+    if args.output is not None and not testing:
         with open(args.output, 'wb') as output_file:
             pickle.dump(neural_nets, output_file, -1)
         exit(0)
@@ -119,7 +139,7 @@ def run(line, model, neural_nets, epoch, testing):
         if not testing:
             neural_nets[i].adjust_weights(vectors[i], correct_ans)
 
-    if epoch % 10 == 0:
+    if epoch % 100 == 0 and not testing:
         print('epoch', epoch)
         pct = (correct_guesses / total_guesses) * 100.0
         print('%.04f%% correct\n' % pct)

@@ -1,3 +1,8 @@
+# Daniel Peek qer419
+# Michael Canas ohh135
+# CS 3793 Final Project
+# 12/4/18
+
 from nltk.corpus import wordnet as wn
 
 articles = ['a', 'an', 'the', 'these', 'this']
