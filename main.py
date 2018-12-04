@@ -4,6 +4,8 @@ import neural_net as nn
 import random
 import pickle
 
+nltk.download('averaged_perceptron_tagger')
+
 print('Loading Word2Vec model, please wait...')
 model = gensim.models.KeyedVectors.load_word2vec_format('trained-model.bin', binary=True)
 print('Word2Vec model loaded.')
@@ -26,7 +28,7 @@ testing_data = sentences[650:]
 total_guesses = 0
 correct_guesses = 0
 
-for epoch in range(101):
+for epoch in range(100000):
     line = random.choice(training_data)
     # line = training_data[142]
     tokens = gensim.utils.simple_preprocess(line)
