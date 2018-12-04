@@ -26,8 +26,8 @@ class NeuralNetwork:
 
         self.bias_bottom = [rand() for __ in range(self.hidden_nodes)]
         self.bias_top = [rand() for __ in range(self.outputs)]
-        self.weight_bottom = [[rand() for __ in range(self.hidden_nodes)] for j in range(self.inputs)]
-        self.weight_top = [[rand() for __ in range(self.outputs)] for j in range(self.hidden_nodes)]
+        self.weight_bottom = [[rand() for __ in range(self.hidden_nodes)] for ___ in range(self.inputs)]
+        self.weight_top = [[rand() for __ in range(self.outputs)] for ___ in range(self.hidden_nodes)]
 
         self.hidden = [0.0] * self.hidden_nodes
         self.output = [0.0] * self.outputs
