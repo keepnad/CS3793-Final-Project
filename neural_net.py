@@ -18,16 +18,16 @@ def derivative_sigmoid(x):
 class NeuralNetwork:
     def __init__(self, eta):
         self.inputs = 300
-        self.hidden_nodes = 300
+        self.hidden_nodes = 20
         self.outputs = 5
 
         self.eta = eta
         self.confidence = 0
 
-        self.bias_bottom = [rand() for i in range(self.hidden_nodes)]
-        self.bias_top = [rand() for i in range(self.outputs)]
-        self.weight_bottom = [[rand() for i in range(self.hidden_nodes)] for j in range(self.inputs)]
-        self.weight_top = [[rand() for i in range(self.outputs)] for j in range(self.hidden_nodes)]
+        self.bias_bottom = [rand() for __ in range(self.hidden_nodes)]
+        self.bias_top = [rand() for __ in range(self.outputs)]
+        self.weight_bottom = [[rand() for __ in range(self.hidden_nodes)] for j in range(self.inputs)]
+        self.weight_top = [[rand() for __ in range(self.outputs)] for j in range(self.hidden_nodes)]
 
         self.hidden = [0.0] * self.hidden_nodes
         self.output = [0.0] * self.outputs
@@ -60,6 +60,17 @@ class NeuralNetwork:
         self.confidence = self.output[i] - next_max_sum
 
         return i
+
+        # if i == 0:
+        #     return 'noun'
+        # elif i == 1:
+        #     return 'verb'
+        # elif i == 2:
+        #     return 'adjective'
+        # elif i == 3:
+        #     return 'adverb'
+        # elif i == 4:
+        #     return 'preposition'
 
     def adjust_weights(self, sample, actual):
         delta = [0] * self.outputs
