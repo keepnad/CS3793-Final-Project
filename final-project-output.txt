@@ -1,0 +1,110 @@
+Daniel Peek qer419
+Michael Canas ohh135
+CS 3793 Final Project Output
+12/4/18
+
+---Inital results from first the 1000 epochs on an untrained neural network---
+
+epoch 0
+14.2857% correct
+
+epoch 100
+14.7743% correct
+
+epoch 200
+19.7505% correct
+
+epoch 300
+21.5044% correct
+
+epoch 400
+24.5296% correct
+
+epoch 500
+26.0833% correct
+
+epoch 600
+27.4167% correct
+
+epoch 700
+27.9864% correct
+
+epoch 800
+28.3144% correct
+
+epoch 900
+28.9992% correct
+
+epoch 1000
+29.0219% correct
+
+---Output from 100000 epochs---
+
+epoch 100000
+50.2450% correct
+
+epoch 100100
+50.2548% correct
+
+epoch 100200
+50.2624% correct
+
+epoch 100300
+50.2708% correct
+
+epoch 100400
+50.2796% correct
+
+epoch 100500
+50.2873% correct
+
+epoch 100600
+50.2936% correct
+
+epoch 100700
+50.2984% correct
+
+epoch 100800
+50.3045% correct
+
+epoch 100900
+50.3109% correct
+
+epoch 101000
+50.3178% correct
+
+---Output from resuming training after 200000 epochs---
+
+epoch 0
+83.3333% correct
+
+epoch 100
+63.5854% correct
+
+epoch 200
+64.3509% correct
+
+epoch 300
+63.6832% correct
+
+epoch 400
+64.1350% correct
+
+epoch 500
+64.0067% correct
+
+epoch 600
+64.0140% correct
+
+epoch 700
+63.8639% correct
+
+epoch 800
+64.1183% correct
+
+epoch 900
+64.1512% correct
+
+epoch 1000
+64.1758% correct
+
