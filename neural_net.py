@@ -7,20 +7,23 @@
 import random
 import math
 
-
+# generate random values for initializing weights
 def rand():
     number = random.uniform(-1, 1)
     return number
 
 
+# logistic sigmoid function
 def sigmoid(x):
     return 1.0 / (1 + math.exp(-x))
 
 
+# derivative of sigmoid
 def derivative_sigmoid(x):
     return x * (1.0 - x)
 
 
+# Neural network class, contains functions to train network
 class NeuralNetwork:
     def __init__(self, eta):
         self.inputs = 300
