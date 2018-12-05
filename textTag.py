@@ -5,6 +5,7 @@
 
 import nltk
 from nltk.corpus import wordnet as wn
+# install the needed wordnet module, if not present
 nltk.download('wordnet')
 
 # Dictionaryies difined for articles,adverbs,adjectives,nouns,verbs,preps

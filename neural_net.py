@@ -26,13 +26,17 @@ def derivative_sigmoid(x):
 # Neural network class, contains functions to train network
 class NeuralNetwork:
     def __init__(self, eta):
+        # 1 input for each dimension of Word2Vec vector
         self.inputs = 300
+        # Just guessed for this number, seems to work
         self.hidden_nodes = 20
+        # 1 output for each part of speech looked for
         self.outputs = 5
 
+        # learning rate
         self.eta = eta
-        self.confidence = 0
 
+        # initialize weights randomly
         self.bias_bottom = [rand() for __ in range(self.hidden_nodes)]
         self.bias_top = [rand() for __ in range(self.outputs)]
         self.weight_bottom = [[rand() for __ in range(self.hidden_nodes)] for ___ in range(self.inputs)]
@@ -41,8 +45,10 @@ class NeuralNetwork:
         self.hidden = [0.0] * self.hidden_nodes
         self.output = [0.0] * self.outputs
 
+    # feed forward prediction
     def predict(self, sample):
         i = 0
+        # feed from inputs to hidden nodes
         for k in range(self.hidden_nodes):
             weight_sum = 0.0
             for i in range(self.inputs):
@@ -50,6 +56,7 @@ class NeuralNetwork:
             weight_sum += self.bias_bottom[k]
             self.hidden[k] = sigmoid(weight_sum)
 
+        # feed from hidden nodes to outputs
         for k in range(self.outputs):
             weight_sum = 0.0
             for i in range(self.hidden_nodes):
@@ -57,32 +64,25 @@ class NeuralNetwork:
             weight_sum += self.bias_top[k]
             self.output[k] = sigmoid(weight_sum)
 
+        # find highest activation, that is the guess
         for k in range(self.outputs):
             if k == 0 or self.output[k] > self.output[i]:
                 i = k
 
-        next_max_sum = -1.0
-        for k in range(self.outputs):
-            if k != i:
-                if next_max_sum < 0.0 or self.output[k] > next_max_sum:
-                    next_max_sum = self.output[k]
-        self.confidence = self.output[i] - next_max_sum
-
         return i
 
-        # if i == 0:
-        #     return 'noun'
-        # elif i == 1:
-        #     return 'verb'
-        # elif i == 2:
-        #     return 'adjective'
-        # elif i == 3:
-        #     return 'adverb'
-        # elif i == 4:
-        #     return 'preposition'
+        # return value meanings;
+        # 0 = noun
+        # 1 = verb
+        # 2 = adjective
+        # 3 = adverb
+        # 4 = preposition
 
+    # backwards propagation to train weights
     def adjust_weights(self, sample, actual):
         delta = [0] * self.outputs
+
+        # from outputs to hidden nodes
         for k in range(self.outputs):
             if k == actual:
                 weight_sum = 1.0
@@ -97,6 +97,7 @@ class NeuralNetwork:
 
             self.bias_top[k] += self.eta * delta[k]
 
+        # from hidden nodes to inputs
         for j in range(self.hidden_nodes):
             d = 0.0
             for k in range(self.outputs):
