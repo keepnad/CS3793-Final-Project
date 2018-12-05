@@ -22,7 +22,7 @@ with open("verbs","r") as file3:
 with open('preps') as f:
    	 preps = f.read().splitlines()
 
-for line in open("allSentences",'r'):
+for line in open("sentences",'r'):
    wordD = []
    words = line.split()
    print(words)
