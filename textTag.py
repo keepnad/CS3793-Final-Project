@@ -41,6 +41,7 @@ for line in open("sentences",'r'):
 
    i = 0
    while i < len(words):
+     #check four worded patterns
      if i+3 < len(words):
        #print "in 4 if"
        #print words[i:i+3]
@@ -57,6 +58,7 @@ for line in open("sentences",'r'):
          i+=4
          continue
 
+     #check 3 worded pattens
      if i+2 < len(words):
        #print words[i],i
        #check for pattern:"article" "adj" "noun"
@@ -79,6 +81,7 @@ for line in open("sentences",'r'):
           wordD.append(tmp)
           i+=3
           continue
+     #check 2 worded paterns
      if i+1 < len(words):
           if words[i] in adv and words[i+1] in verbs:
             tmp = (words[i],"adverb")
@@ -95,6 +98,7 @@ for line in open("sentences",'r'):
             wordD.append(tmp)
             i+=2
             continue
+     # if patterns not matched tag with dictonary lookup
      if words[i] in preps:
           tmp = (words[i],"preposition")
           wordD.append(tmp)
