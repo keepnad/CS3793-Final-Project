@@ -25,7 +25,7 @@ with open('preps') as f:
 for line in open("sentences",'r'):
    wordD = []
    words = line.split()
-   print words
+   print(words)
    words[0] = words[0][0].lower() + words[0][1:] #lower case first word
    words[-1] = words[-1][:-1] #remove periods
 
@@ -41,7 +41,7 @@ for line in open("sentences",'r'):
 
    i = 0
    while i < len(words):
-     if i+4 < len(words):
+     if i+3 < len(words):
        #print "in 4 if"
        #print words[i:i+3]
        if words[i] in articles and words[i+1] in nouns and words[i+2] in verbs and words[i+3] in verbs:
@@ -57,8 +57,8 @@ for line in open("sentences",'r'):
          i+=4
          continue
 
-     if i+3 < len(words):
-       print words,i
+     if i+2 < len(words):
+       #print words[i],i
        #check for pattern:"article" "adj" "noun"
        if words[i] in articles and words[i+1] in adj and words[i+2] in nouns:
           tmp = (words[i],"article")
@@ -79,7 +79,7 @@ for line in open("sentences",'r'):
           wordD.append(tmp)
           i+=3
           continue
-     if i+2 < len(words):
+     if i+1 < len(words):
           if words[i] in articles and words[i+1] in nouns:
             tmp = (words[i],"article")
             wordD.append(tmp)
@@ -87,7 +87,11 @@ for line in open("sentences",'r'):
             wordD.append(tmp)
             i+=2
             continue
+     if words[i] in preps:
+          tmp = (words[i],"preposition")
+          wordD.append(tmp)
      i+=1
 
-   print wordD
+   print(wordD)
+   print()
 
