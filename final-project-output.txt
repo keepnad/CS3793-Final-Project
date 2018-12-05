@@ -6,105 +6,65 @@ CS 3793 Final Project Output
 ---Inital results from first the 1000 epochs on an untrained neural network---
 
 epoch 0
-14.2857% correct
+20.0000% correct
 
 epoch 100
-14.7743% correct
+20.4991% correct
 
 epoch 200
-19.7505% correct
+20.9009% correct
 
 epoch 300
-21.5044% correct
+22.8485% correct
 
 epoch 400
-24.5296% correct
+24.1877% correct
 
 epoch 500
-26.0833% correct
+25.0813% correct
 
 epoch 600
-27.4167% correct
+26.9880% correct
 
 epoch 700
-27.9864% correct
+28.6158% correct
 
 epoch 800
-28.3144% correct
+30.1039% correct
 
 epoch 900
-28.9992% correct
+31.5071% correct
 
-epoch 1000
-29.0219% correct
-
----Output from 100000 epochs---
-
-epoch 100000
-50.2450% correct
-
-epoch 100100
-50.2548% correct
-
-epoch 100200
-50.2624% correct
-
-epoch 100300
-50.2708% correct
-
-epoch 100400
-50.2796% correct
-
-epoch 100500
-50.2873% correct
-
-epoch 100600
-50.2936% correct
-
-epoch 100700
-50.2984% correct
-
-epoch 100800
-50.3045% correct
-
-epoch 100900
-50.3109% correct
-
-epoch 101000
-50.3178% correct
 
 ---Output from resuming training after 200000 epochs---
 
 epoch 0
-83.3333% correct
+80.0000% correct
 
 epoch 100
-63.5854% correct
+83.5145% correct
 
 epoch 200
-64.3509% correct
+83.8537% correct
 
 epoch 300
-63.6832% correct
+83.5910% correct
 
 epoch 400
-64.1350% correct
+82.9094% correct
 
 epoch 500
-64.0067% correct
+82.9330% correct
 
 epoch 600
-64.0140% correct
+83.1689% correct
 
 epoch 700
-63.8639% correct
+83.4400% correct
 
 epoch 800
-64.1183% correct
+82.8815% correct
 
 epoch 900
-64.1512% correct
-
-epoch 1000
-64.1758% correct
+83.0016% correct
 

@@ -132,12 +132,12 @@ def run(line, model, neural_nets, epoch, testing):
             elif tags[i] == 'preposition':
                 correct_ans = 4
 
-        total_guesses += 1
-        if guess_pos == tags[i]:
-            correct_guesses += 1
-
-        if not testing:
-            neural_nets[i].adjust_weights(vectors[i], correct_ans)
+        if tags[i] != 'unknown':
+            total_guesses += 1
+            if guess_pos == tags[i]:
+                correct_guesses += 1
+            if not testing:
+                neural_nets[i].adjust_weights(vectors[i], correct_ans)
 
     if epoch % 100 == 0 and not testing:
         print('epoch', epoch)

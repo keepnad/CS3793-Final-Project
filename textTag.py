@@ -3,7 +3,10 @@
 # CS 3793 Final Project
 # 12/4/18
 
+import nltk
 from nltk.corpus import wordnet as wn
+
+nltk.download('wordnet')
 
 articles = ['a', 'an', 'the', 'these', 'this']
 
